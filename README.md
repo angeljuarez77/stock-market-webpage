@@ -10,5 +10,5 @@ This project would be all about manipulating data given to me by an API request 
 + I would also have to learn how to fill in API urls with user input that isn't text. I would like for them to just press an image and then they see their companies stock graph. 
 + I would also like to make the graph interactive. I would like for them to click at a certain point in the graph and then they see the information for that time period.
 
-#POTENTIAL FIXES!!!
+# POTENTIAL FIXES!!!
 + For the graph I could just take the lowest value of the stock for that time frame and then I could set that as the beginning of the graph and then the same for the highest
