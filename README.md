@@ -1,7 +1,7 @@
 # Project-2-Proposal
 # Stock Market Web App
-# API TO BE USED https://api.iextrading.com/1.0/stock/aapl/chart/dynamic
-
+# API TO BE USED https://api.iextrading.com/1.0/stock/${symbol}/chart/dynamic
+The documentation of the API https://iextrading.com/developer/docs/#getting-started
 ## BRIEF DESCRIPTION! 
 This project would be all about manipulating data given to me by an API request and then sending out other requests by user inputted information from GUI inputs. 
 
