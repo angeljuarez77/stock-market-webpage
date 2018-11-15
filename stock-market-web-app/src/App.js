@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-// import SymbolForm from './components/company-input/SymbolForm';
 import OpeningView from './components/OpeningView/OpeningView';
 import RangePick from './components/RangePick/RangePick';
 import GraphView from './components/GraphView/GraphView';
@@ -21,8 +20,9 @@ class App extends Component {
       view : '',
       range : '',
       symbol: '',
+      rangeInfo : [],
       companies : [
-      new Company('Walmart', "https://storage.googleapis.com/iex/api/logos/WMT.png", '  WMT'),
+      new Company('Walmart', "https://storage.googleapis.com/iex/api/logos/WMT.png", 'WMT'),
       new Company('Exxon Mobil', "https://storage.googleapis.com/iex/api/logos/XOM.png", 'XOM'),
       new Company('Berkshire Hathaway',"https://storage.googleapis.com/iex/api/logos/BRK.A.png", 'BRK.A'),
       new Company('Apple',"https://storage.googleapis.com/iex/api/logos/AAPL.png", 'AAPL'),
@@ -35,7 +35,6 @@ class App extends Component {
       new Company('Ford Motor', "https://storage.googleapis.com/iex/api/logos/F.png", 'F')
       ]
     } 
-    this.handleClick = this.handleClick.bind(this);
     this.grabId = this.grabId.bind(this);
     this.homeClick = this.homeClick.bind(this);
     this.radioClick = this.radioClick.bind(this);
@@ -49,7 +48,7 @@ class App extends Component {
       case 'range':
       return <RangePick onClick={this.homeClick} onRadioClick={this.radioClick} submitAll={this.submitAll}/>
       case 'graph':
-      return <GraphView homeView={this.homeClick}/> 
+      return <GraphView homeView={this.homeClick} stockInfo={this.state.rangeInfo} range={this.state.range} /> 
       default: 
       return <OpeningView grabId={this.grabId} allInfo={this.state}/>
     }
@@ -75,7 +74,9 @@ class App extends Component {
       axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
       .then(
         res => {
-          console.log(res.data)
+          this.setState({
+            rangeInfo : res.data
+          })
         }
       ).catch(err => console.log(err))
     }
@@ -89,15 +90,9 @@ class App extends Component {
     })
   }
 
-  handleClick(e){
-    e.preventDefault();
-  }
-
   grabId(e){
     const company = e.target.id;
-    console.log(company);
     const view = e.target.getAttribute('data-view');
-    console.log(view);
     this.setState({
       symbol : company,
       view : view

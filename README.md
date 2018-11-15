@@ -1,5 +1,15 @@
 # Project-2-Proposal
 # Stock Market Web App
+## Project Description 
+You will be able to select one of the Fortune 500 companies and then choose their range in order to see their stock prices.
+
+## MVP
+The MVP would be being able to render a graph of the users choice after they pick a company and a time frame. All this should be styled as well
+## Post MVP
+After everything then I would use different api calls to render news of the company that they picked
+## Additional libraries 
+https://chartkick.com/react
+
 # API TO BE USED https://api.iextrading.com/1.0/stock/${symbol}/chart/dynamic
 The documentation of the API https://iextrading.com/developer/docs/#getting-started
 ## BRIEF DESCRIPTION! 

@@ -11,13 +11,13 @@ img{
   border-radius: 12px;
 }
 img:hover{
-  animation: test 1s forwards;
+  animation: test 2s forwards;
 }
 @keyframes test{
   0%{
-    
+    border: solid black 1px;
   }
   100%{
-    border: solid red 1px;
+    border: solid black 3px;
   }
 }
