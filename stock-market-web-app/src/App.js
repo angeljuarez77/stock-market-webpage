@@ -20,6 +20,7 @@ class App extends Component {
       view : '',
       range : '',
       symbol: '',
+      name: '',
       rangeInfo : [],
       companies : [
       new Company('Walmart', "https://storage.googleapis.com/iex/api/logos/WMT.png", 'WMT'),
@@ -48,7 +49,7 @@ class App extends Component {
       case 'range':
       return <RangePick onClick={this.homeClick} onRadioClick={this.radioClick} submitAll={this.submitAll}/>
       case 'graph':
-      return <GraphView homeView={this.homeClick} stockInfo={this.state.rangeInfo} range={this.state.range} /> 
+      return <GraphView homeView={this.homeClick} stockInfo={this.state.rangeInfo} range={this.state.range} symbol={this.state.symbol} name={this.state.name}/> 
       default: 
       return <OpeningView grabId={this.grabId} allInfo={this.state}/>
     }
@@ -92,10 +93,12 @@ class App extends Component {
 
   grabId(e){
     const company = e.target.id;
+    const name = e.target.name;
     const view = e.target.getAttribute('data-view');
     this.setState({
       symbol : company,
-      view : view
+      view : view,
+      name : name
     })
   }
 

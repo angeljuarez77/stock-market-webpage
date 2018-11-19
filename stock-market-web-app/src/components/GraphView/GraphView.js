@@ -6,11 +6,20 @@ export default function GraphView(props){
 
     function things(){
         if(props.stockInfo == false){
-            // a case so that if my stock info is empty it won't throw an error saying that it can't read a value of null in the next steps
+            // a case so that if my stock info is empty it won't throw an error saying that it can't read a value of null before the next steps
         } 
         else if(props.range === '1d'){
             const store = []
             props.stockInfo.map(x => store.push(new Array(x.minute , x.average)))
+            for(let i = 0; i < store.length; i++){
+                if(store[i][1] === -1){
+                    console.log(store[i - 1])
+                    console.log(store[i])
+                    console.log(store[i + 1])
+                    store.splice([i], 1)
+                }
+            }
+            console.log(store)
             return store
         } else {
             const infoStorage = [];
@@ -50,7 +59,9 @@ export default function GraphView(props){
 
     return(
             <div> 
-                <h1 onClick={props.homeView} id="home">Home</h1>
+                <h1 onClick={props.homeView} className="home">Home</h1>
+                <h2 className="company-name">{props.symbol}</h2>
+                <h3 className="company-name">{props.name}</h3>
                 <LineChart data={things()} min={identifyMin()} max={identifyMax()}/>
             </div>
         )

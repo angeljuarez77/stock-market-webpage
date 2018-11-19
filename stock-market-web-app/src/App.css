@@ -1,13 +1,19 @@
+body{
+  background-color: black;
+}
 .logo{
   text-align: center;
+  color: white;
 }
 .logos-section{
   margin: 0 auto;
   width: 70%;
 }
+.home{
+  color: white;
+}
 img{
   margin: 1%;
-  /* border: ; */
   border-radius: 12px;
 }
 img:hover{
@@ -15,9 +21,13 @@ img:hover{
 }
 @keyframes test{
   0%{
-    border: solid black 1px;
+    border: solid white 0px;
   }
   100%{
-    border: solid black 3px;
+    border: solid white 2px;
   }
+} 
+.company-name{
+  color: white;
+  text-align: center;
 }

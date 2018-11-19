@@ -3,7 +3,7 @@ import React from 'react';
 export default function RangePick(props){
     return(
         <div>
-            <h1 onClick={props.onClick} id="opening">Home</h1>
+            <h1 onClick={props.onClick} className="home">Home</h1>
             <form>
                 <button onClick={props.onRadioClick} type="radio" id="5y">5y</button>
                 <button onClick={props.onRadioClick} type="radio" id="2y">2y</button>
